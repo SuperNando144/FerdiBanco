@@ -21,11 +21,12 @@ public class FinalActivity extends AppCompatActivity {
     public void irParaPrincipal(View view) {
         Intent intent = new Intent(FinalActivity.this, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        this.finish();
         startActivity(intent);
     }
 
     public void calcular() {
-        AlertDialog.Builder mensagem = new AlertDialog.Builder(this);
+
         TextView txtAprov = (TextView) findViewById(R.id.txtAprov);
         TextView txtValorParc = (TextView) findViewById(R.id.txtValorParc);
         TextView txtValorTot = (TextView) findViewById(R.id.txtValorTot);
@@ -37,16 +38,16 @@ public class FinalActivity extends AppCompatActivity {
         Double rendaLiq = Double.parseDouble(thisIntent.getStringExtra("rendaLiq"));
         Double juro = Double.parseDouble(thisIntent.getStringExtra("juro"));
         devedor = valorTotal - valorEntrada;
-        elevado = Math.pow(1+juro, qtdParcela);
-        parcela = devedor * ((elevado * juro) / (elevado - 1));
-        total = parcela * qtdParcela;
-        if (parcela > rendaLiq * 0.3) {
+        elevado = Math.pow(juro, qtdParcela);
+        total = devedor * elevado;
+        parcela = total / qtdParcela;
+        if (parcela > (rendaLiq*0.3)) {
             txtAprov.setText("Não aprovado");
         } else {
             txtAprov.setText("Aprovado");
         }
 
-        txtValorParc.setText(parcela.toString());
-        txtValorTot.setText(total.toString());
+        txtValorParc.setText("R$"+String.format("%.2f", parcela));
+        txtValorTot.setText("R$"+String.format("%.2f", total));
     }
 }

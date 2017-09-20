@@ -61,16 +61,16 @@ public class CarActivity
 
                 if (dadosConfirmados) {
                     if (Double.parseDouble(edtRendaLiqMen.getText().toString()) <= 3500) {
-                        thisIntent.putExtra("juro", "0.06");
+                        thisIntent.putExtra("juro", "1.06");
                     } else if (Double.parseDouble(edtRendaLiqMen.getText().toString()) <= 5000) {
-                        thisIntent.putExtra("juro", "0.05");
+                        thisIntent.putExtra("juro", "1.05");
                     } else {
-                        thisIntent.putExtra("juro", "0.04");
+                        thisIntent.putExtra("juro", "1.04");
                     }
 
                     thisIntent.putExtra("parcelas", edtQtdParcela.getText().toString());
-                    thisIntent.putExtra("valorTotal", edtValorEntr.getText().toString());
-                    thisIntent.putExtra("entrada", edtValorVeic.getText().toString());
+                    thisIntent.putExtra("valorTotal", edtValorVeic.getText().toString());
+                    thisIntent.putExtra("entrada", edtValorEntr.getText().toString());
                     thisIntent.putExtra("rendaLiq", edtQtdParcela.getText().toString());
                     startActivity(thisIntent);
                 }
