@@ -31,21 +31,21 @@ public class FinalActivity extends AppCompatActivity {
         TextView txtValorParc = (TextView) findViewById(R.id.txtValorParc);
         TextView txtValorTot = (TextView) findViewById(R.id.txtValorTot);
 
-        Double devedor, parcela, total, elevado;
+        Double devedor, parcela, total, renda;
         Double qtdParcela =  Double.parseDouble(thisIntent.getStringExtra("parcelas"));
         Double valorTotal = thisIntent.getDoubleExtra("valorTotal", 0.0);
         Double valorEntrada = Double.parseDouble(thisIntent.getStringExtra("entrada"));
         Double rendaLiq = Double.parseDouble(thisIntent.getStringExtra("rendaLiq"));
         Double juro = Double.parseDouble(thisIntent.getStringExtra("juro"));
+        renda = rendaLiq*0.3;
         devedor = valorTotal - valorEntrada;
         parcela = devedor * juro * qtdParcela;
         total = parcela * qtdParcela;
-        if (parcela > (rendaLiq*0.3)) {
+        if (parcela >= renda) {
             txtAprov.setText("Não aprovado");
         } else {
             txtAprov.setText("Aprovado");
         }
-
         txtValorParc.setText("R$"+String.format("%.2f", parcela));
         txtValorTot.setText("R$"+String.format("%.2f", total));
     }

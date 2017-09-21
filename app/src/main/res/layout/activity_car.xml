@@ -41,13 +41,13 @@
         android:layout_alignEnd="@+id/textView4">
 
         <RadioButton
-            android:id="@+id/rbVelho"
+            android:id="@+id/rbVelhoCar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Velho" />
 
         <RadioButton
-            android:id="@+id/rbNovo"
+            android:id="@+id/rbNovoCar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
@@ -98,7 +98,7 @@
         android:inputType="numberDecimal"
         android:ems="10"
         android:layout_below="@+id/textView9"
-        android:id="@+id/edtValorEntr"
+        android:id="@+id/edtValorEntrVeic"
         android:layout_alignRight="@+id/edtValorVeic"
         android:layout_alignEnd="@+id/edtValorVeic" />
 
@@ -106,7 +106,7 @@
         android:text="Quantidade de Parcelas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/edtValorEntr"
+        android:layout_below="@+id/edtValorEntrVeic"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:id="@+id/txtPar" />
@@ -117,15 +117,15 @@
         android:inputType="number"
         android:ems="10"
         android:layout_below="@+id/txtPar"
-        android:layout_alignRight="@+id/edtValorEntr"
-        android:layout_alignEnd="@+id/edtValorEntr"
-        android:id="@+id/edtQtdParcela" />
+        android:layout_alignRight="@+id/edtValorEntrVeic"
+        android:layout_alignEnd="@+id/edtValorEntrVeic"
+        android:id="@+id/edtQtdParcelaVeic" />
 
     <TextView
         android:text="Renda Líquida Mensal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/edtQtdParcela"
+        android:layout_below="@+id/edtQtdParcelaVeic"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:id="@+id/textView11" />
@@ -135,7 +135,7 @@
         android:layout_height="wrap_content"
         android:inputType="numberDecimal"
         android:ems="10"
-        android:id="@+id/edtRendaLiqMen"
+        android:id="@+id/edtRendaLiqMenVeic"
         android:layout_below="@+id/textView11"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
