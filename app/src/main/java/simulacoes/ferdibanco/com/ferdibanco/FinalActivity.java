@@ -33,14 +33,13 @@ public class FinalActivity extends AppCompatActivity {
 
         Double devedor, parcela, total, elevado;
         Double qtdParcela =  Double.parseDouble(thisIntent.getStringExtra("parcelas"));
-        Double valorTotal = Double.parseDouble(thisIntent.getStringExtra("valorTotal"));
+        Double valorTotal = thisIntent.getDoubleExtra("valorTotal", 0.0);
         Double valorEntrada = Double.parseDouble(thisIntent.getStringExtra("entrada"));
         Double rendaLiq = Double.parseDouble(thisIntent.getStringExtra("rendaLiq"));
         Double juro = Double.parseDouble(thisIntent.getStringExtra("juro"));
         devedor = valorTotal - valorEntrada;
-        elevado = Math.pow(juro, qtdParcela);
-        total = devedor * elevado;
-        parcela = total / qtdParcela;
+        parcela = devedor * juro * qtdParcela;
+        total = parcela * qtdParcela;
         if (parcela > (rendaLiq*0.3)) {
             txtAprov.setText("Não aprovado");
         } else {
